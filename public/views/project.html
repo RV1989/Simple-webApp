@@ -15,9 +15,11 @@
   <tr ng-class="getColorConveyor(x)" ng-repeat="x in Conveyors" >
 
     <td ng-hide="editMode && x.name === editableConveor.name">{{x.name}}</td>
+    <td ng-show="editMode && x.name === editableConveor.name"><input ng-model="editableConveor.name"></td>
     <td >{{x.timeRunning}}</td>
     <td >{{x.lastMaintenance}}</td>
     <td ng-hide="editMode && x.name === editableConveor.name">{{x.maintenancetime}}</td>
+    <td ng-show="editMode && x.name === editableConveor.name"><input ng-model="editableConveor.maintenancetime"></td>
 
     <td >
       <div class="progress" >
@@ -29,8 +31,10 @@
       </td>
     <td ng-hide="editMode && x.name === editableConveor.name" >
       <button type="button" class="btn btn-primary" ng-click="editConveyor(x)">Edit</button>
+      <button class="btn btn-default" ng-click="edit($index)">Maintenance</button>
     </td>
     <td ng-show="editMode && x.name === editableConveor.name" >
+      <button type="button" class="btn btn-primary" ng-click="saveEditConveyor($index)">Save</button>
       <button class="btn btn-default" ng-click="cancelEditConveyor()" >Cancel</button>
     </td>
 
