@@ -17,10 +17,10 @@
     <td ng-hide="editMode && x.name === editableConveor.name">{{x.name}}</td>
     <td ng-show="editMode && x.name === editableConveor.name"><input ng-model="editableConveor.name"></td>
     <td >{{x.timeRunning}}</td>
-    <td >{{x.lastMaintenance}}</td>
+    <td ng-hide="editMode && x.name === editableConveor.name">{{x.lastMaintenance}}</td>
+    <td ng-show="editMode && x.name === editableConveor.name"><input ng-model="editableConveor.lastMaintenance"></td>
     <td ng-hide="editMode && x.name === editableConveor.name">{{x.maintenancetime}}</td>
     <td ng-show="editMode && x.name === editableConveor.name"><input ng-model="editableConveor.maintenancetime"></td>
-
     <td >
       <div class="progress" >
         <div class="progress-bar" ng-class="getColorProgress(x)" role="progressbar" aria-valuenow="{{ getProgress(x) }}"

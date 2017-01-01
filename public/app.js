@@ -40,12 +40,13 @@ myApp.controller('projectCtrl',function($scope,$http,$routeParams) {
       console.log(index);
       $scope.Conveyors[index].lastMaintenance = $scope.Conveyors[index].timeRunning ;
       $http.put("/api/project/"+$routeParams.id+'/' + $scope.Conveyors[index].name, $scope.Conveyors[index])
-      .success(function(){
-        //console.log("succes") ;
-      })
-      .error(function(err){
-        alert('Error! Something went wrong'+ err);
-      });
+      .then(function(response){
+        console.log(response) ;
+      },
+      function(response){
+        alert('Error! Something went wrong'+ response);
+      }
+      );
     };
 
     // change background color of table if maintenance is required
@@ -66,7 +67,7 @@ myApp.controller('projectCtrl',function($scope,$http,$routeParams) {
     };
     // get progress to see if maintenance is near
     $scope.getProgress = function(x){
-      var index = ((x.timeRunning-x.lastMaintenance) /x.maintenancetime)*100;
+      var index = Math.round(((x.timeRunning-x.lastMaintenance) /x.maintenancetime)*100);
       return index;
     };
     // open edit mode
@@ -87,12 +88,14 @@ myApp.controller('projectCtrl',function($scope,$http,$routeParams) {
       $scope.editMode = false;
       $scope.editableConveor={};
       $http.put("/api/project/save/"+$routeParams.id+'/' + $scope.Conveyors[index].name, $scope.Conveyors[index])
-      .success(function(){
-        console.log("succes") ;
-      })
-      .error(function(err){
-        alert('Error! Something went wrong'+ err);
-      });
+      .then(function(response){
+        console.log(response) ;
+      },
+      function(response){
+        alert('Error! Something went wrong'+ response);
+      }
+      );
+
     };
       //cancel edit
       $scope.cancelEditConveyor = function(x){
