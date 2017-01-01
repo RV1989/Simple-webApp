@@ -25,19 +25,33 @@ router.get('/project/:id', function(req, res, next){
 
 
 router.put('/project/:id/:name',function(req, res,next) {
-    var conveyor = req.body
+    var conveyor = req.body;
         // use our bear model to find the bear we want
+        console.log("***** Updating Request ****" + req.body);
         db.Projects.update( {_id:  mongojs.ObjectId(req.params.id) , "Conveyors.name" : req.params.name } ,
                 {$set : {"Conveyors.$.lastMaintenance" : conveyor.lastMaintenance } } ,function(err, result) {
                   if (err)
-                  console.log(err)
-                  res.send(err)
+                  console.log(err);
+                  res.send(err);
 
                 });
                 console.log(conveyor);
                 res.json(conveyor);
               });
 
+router.put('/project/save/:id/:name',function(req, res,next) {
+    var conveyor = req.body;
+    // use our bear model to find the bear we want
+    console.log("***** Updating Request ****" + req.body);
+    db.Projects.update( {_id:  mongojs.ObjectId(req.params.id) , "Conveyors.name" : req.params.name } ,
+    {$set : {"Conveyors.$.lastMaintenance" : conveyor.lastMaintenance } } ,function(err, result) {
+      if (err)
+        console.log(err);
+        res.send(err);
+      });
+      console.log(conveyor);
+      res.json(conveyor);
+      });
 
 
 

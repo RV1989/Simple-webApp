@@ -6,24 +6,36 @@
     <th>Conveyor</th>
     <th>Time running</th>
     <th>Last maintenance</th>
+    <th>interval</th>
     <th>Progress</th>
     <th>Action</th>
   </tr>
   </thead>
   <tbody>
-  <tr ng-class="getColorConveyor(x)" ng-repeat="x in Conveyors">
-    <td>{{x.name}}</td>
-    <td>{{x.timeRunning}}</td>
-    <td>{{x.lastMaintenance}}</td>
-    <td>
-      <div class="progress">
+  <tr ng-class="getColorConveyor(x)" ng-repeat="x in Conveyors" >
+
+    <td ng-hide="editMode && x.name === editableConveor.name">{{x.name}}</td>
+    <td >{{x.timeRunning}}</td>
+    <td >{{x.lastMaintenance}}</td>
+    <td ng-hide="editMode && x.name === editableConveor.name">{{x.maintenancetime}}</td>
+
+    <td >
+      <div class="progress" >
         <div class="progress-bar" ng-class="getColorProgress(x)" role="progressbar" aria-valuenow="{{ getProgress(x) }}"
-        aria-valuemin="0" aria-valuemax="100" style="width:{{ getProgress(x) }}%">
+        aria-valuemin="0" aria-valuemax="100" style=" width:{{ getProgress(x) }}% ">
         {{ getProgress(x) }}%
-  </div>
-</div>
+        </div>
+      </div>
       </td>
-    <td><button class="btn btn-primary" ng-click="edit($index)">Maintenance done</button></td>
+    <td ng-hide="editMode && x.name === editableConveor.name" >
+      <button type="button" class="btn btn-primary" ng-click="editConveyor(x)">Edit</button>
+    </td>
+    <td ng-show="editMode && x.name === editableConveor.name" >
+      <button class="btn btn-default" ng-click="cancelEditConveyor()" >Cancel</button>
+    </td>
+
+
+
   </tr>
 </tbody>
 </table>

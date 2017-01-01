@@ -2,7 +2,12 @@
     background-color: #c0392b;
     height: 100%;
 }
-
+.table > tbody > tr > td {
+    vertical-align: middle !important;
+}
+.table > tbody > tr > td > .progress {
+    margin-bottom: 0px !important;
+}
 .nav-sidebar > li > a {
   color: #fff;
 }
