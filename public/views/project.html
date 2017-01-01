@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div ng-controller="projectCtrl">
+  <table class="table" >
+    <thead>
+  <tr>
+    <th>Conveyor</th>
+    <th>Time running</th>
+    <th>Last maintenance</th>
+    <th>Progress</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-class="getColorConveyor(x)" ng-repeat="x in Conveyors">
+    <td>{{x.name}}</td>
+    <td>{{x.timeRunning}}</td>
+    <td>{{x.lastMaintenance}}</td>
+    <td>
+      <div class="progress">
+        <div class="progress-bar" ng-class="getColorProgress(x)" role="progressbar" aria-valuenow="{{ getProgress(x) }}"
+        aria-valuemin="0" aria-valuemax="100" style="width:{{ getProgress(x) }}%">
+        {{ getProgress(x) }}%
+  </div>
+</div>
+      </td>
+    <td><button class="btn btn-primary" ng-click="edit($index)">Maintenance done</button></td>
+  </tr>
+</tbody>
+</table>
+
+</div>

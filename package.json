@@ -1,0 +1,19 @@
+{
+  "name": "simple-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RV1989/Simple-webApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RV1989/Simple-webApp/issues"
+  },
+  "homepage": "https://github.com/RV1989/Simple-webApp#readme"
+}

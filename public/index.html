@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <html >
+    <head>
+      <!-- SCROLLS -->
+      <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="/bower_components\bootstrap\dist\css\bootstrap.css" />
+      <link rel="stylesheet" href="style/dashboard.css" />
+
+      <!-- SPELLS -->
+      <!-- load angular and angular route via CDN -->
+      <script src="/bower_components\angular\angular.min.js"></script>
+      <script src="/bower_components\angular-route\angular-route.min.js"></script>
+      <script src="/bower_components\jquery\dist\jquery.min.js"></script>
+      <script src="/bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
+
+
+      <script src="app.js"></script>
+      <title>myApp</title>
+    </head>
+
+    <body >
+
+      <div ng-app="myApp" ng-controller="dashCtrl">
+      <div class="container-fluid">
+       <div class="row content">
+         <div class="col-md-2 sidebar">
+
+           <ul class="nav nav-sidebar">
+             <li>
+             <img class="img-responsive" src="img\ceratec logo.png">
+           </li>
+             <li ng-repeat="x in dash">
+              <a class="nav-item nav-link" href="#project/{{ x._id }}"> {{ x.name +' '}}<span class="badge">{{ Conveyorcount(x.Conveyors) }}</span></a>
+             </li>
+
+           </ul>
+
+         </div>
+            <div class="col-md-9">
+              <div ng-view></div>
+            </div>
+        </div>
+     </div>
+   </div>
+
+
+
+    </body>
+    </html>

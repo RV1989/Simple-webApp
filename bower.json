@@ -1,0 +1,25 @@
+{
+  "name": "simple-webapp",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "RV1989 <rien__verbeke@msn.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/RV1989/Simple-webApp",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular-route": "^1.6.1",
+    "angular": "^1.6.1"
+  }
+}
