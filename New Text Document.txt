@@ -1,0 +1,1 @@
+db.getCollection('Projects').find({name : "westfro"},{ _id:0,"Conveyors.alarms.dbx0_0" : 1 , Conveyors : { $elemMatch : {name : "13502" }}})
